@@ -1,10 +1,12 @@
+//CSS
 import './globals.css';
-
-export default function RootLayout({
-  children,
-}: {
+// COMPONENTS
+import AppWrapper from './appWrapper';
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang='en'>
       {/*
@@ -12,7 +14,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <AppWrapper>{props.children}</AppWrapper>
+      </body>
     </html>
   );
 }
