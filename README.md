@@ -29,7 +29,7 @@ To use the boilerplate structure in your project, you can follow these steps:
 
 * Clone the boilerplate structure repository from Github using the following command:
 ```
-    git clone https://github.com/your-username/boilerplate-structure.git
+    git clone git@github.com:altusdigital/ad-dev-boilerplate.git
 ```    
 
 * Install the required dependencies using npm by running the following command:
