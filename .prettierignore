@@ -1,0 +1,3 @@
+# add all the files you want to ignore here
+node_modules
+.next

@@ -4,10 +4,10 @@
 
 /* ANT DESIGN COMPONENTS CSS */
 .ant-btn-primary {
-  background-color: #8148e5;
+    background-color: #8148e5;
 }
 
 .modal-loader .ant-modal-content {
-  background-color: transparent;
-  box-shadow: none;
+    background-color: transparent;
+    box-shadow: none;
 }
