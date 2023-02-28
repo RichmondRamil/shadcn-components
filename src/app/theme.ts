@@ -1,6 +1,6 @@
 import { theme } from 'antd';
 
-// Create the theme from ant Design
+// If you want to customize antd theme, you can do it here: https://ant.design/docs/react/customize-theme
 const themeProvider = {
   token: {
     colorPrimary: '#8148e5',
