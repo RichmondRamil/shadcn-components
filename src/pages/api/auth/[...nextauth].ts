@@ -1,12 +1,12 @@
 // DEPENDENCIES
-import NextAuth from 'next-auth'
+import NextAuth from 'next-auth';
 // TYPES
-import type { NextAuthOptions } from 'next-auth'
+import type { NextAuthOptions } from 'next-auth';
 
 // NextAuthOptions please read at https://next-auth.js.org/configuration/options
 export const authOptions: NextAuthOptions = {
-    providers: [],
-    callbacks: {},
-}
+  providers: [],
+  callbacks: {},
+};
 
-export default NextAuth(authOptions)
+export default NextAuth(authOptions);
