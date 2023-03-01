@@ -44,7 +44,7 @@ To use the boilerplate structure in your project, you can follow these steps:
 ```    
 * Configure the database by editing the .env file located in the root directory of your project. Change the following variables to match your MySQL database configuration:
 
-```dotenv
+```.env
     DATABASE_URL="mysql://username:password@localhost:3306/database_name"
 ```    
 * Run the database migrations by running the following command:
