@@ -2,6 +2,8 @@
 import axios from 'axios';
 // CONFIG
 import APPConfig from '@/shared/config/index';
+
+// ? To get more information about axios, please visit https://axios-http.com/docs/intro
 class APIService {
   protected baseURL: string;
 
@@ -69,23 +71,57 @@ class APIService {
   };
 
   get = async (method: string) => {
-    return await axios.get(this.buildURL(method));
-  };
-
-  post = async (method: string, data: any) => {
     try {
-      return await axios.post(this.buildURL(method), data);
+      const res = await axios({
+        method: 'GET', //this is for method
+        url: this.buildURL(method), //this is for url
+      });
+      return res.data;
     } catch (error) {
       return Promise.reject(error);
     }
   };
 
-  put = async (method: string, data: any) => {
-    return await axios.put(this.buildURL(method), data);
+  post = async (method: string, data: any, params?: any) => {
+    try {
+      const res = await axios({
+        method: 'POST', //this is for method
+        url: this.buildURL(method), //this is for url
+        data, //this is for body
+        params, //this is for query params
+      });
+      return res.data;
+    } catch (error) {
+      return Promise.reject(error);
+    }
   };
 
-  delete = async (method: string, data?: any) => {
-    return await axios.delete(this.buildURL(method), data);
+  put = async (method: string, data: any, params?: any) => {
+    try {
+      const res = await axios({
+        method: 'PUT', //this is for method
+        url: this.buildURL(method), //this is for url
+        data, //this is for body
+        params, //this is for query params
+      });
+      return res.data;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  };
+
+  delete = async (method: string, data?: any, params?: any) => {
+    try {
+      const res = await axios({
+        method: 'DELETE', //this is for method
+        url: this.buildURL(method), //this is for url
+        data, //this is for body
+        params, //this is for query params
+      });
+      return res.data;
+    } catch (error) {
+      return Promise.reject(error);
+    }
   };
 }
 
