@@ -1,3 +1,4 @@
+import { Manrope } from 'next/font/google';
 //CSS
 import './globals.css';
 // COMPONENTS
@@ -5,6 +6,14 @@ import AppWrapper from './appWrapper';
 interface RootLayoutProps {
   children: React.ReactNode;
 }
+
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+
 export const metadata = {
   title: 'Altus Digital',
   description: 'Salesforce partner',
@@ -51,7 +60,7 @@ export const metadata = {
 
 export default function RootLayout(props: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" className={manrope.className}>
       <body>
         <AppWrapper>{props.children}</AppWrapper>
       </body>

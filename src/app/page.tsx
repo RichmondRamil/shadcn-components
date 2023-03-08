@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Button from 'src/components/Button';
 import Footer from 'src/components/Footer';
 
+import { HiArrowLongRight } from 'react-icons/hi2';
+
 const koho = KoHo({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
@@ -40,19 +42,39 @@ export default function Home() {
               </h1>
             </div>
             <div className="pb-10 px-20">
-              <div className="flex items-center justify-center gap-5 flex-col md:flex-row">
-                <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
-                  Docs {'->'}
-                  <p>Lorem ipsum dolor sit amet consectetur.</p>
-                </div>
-                <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
-                  Templates {'->'}
-                  <p>Lorem ipsum dolor sit amet consectetur.</p>
-                </div>
-                <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
-                  Deploy {'->'}
-                  <p>Lorem ipsum dolor sit amet consectetur.</p>
-                </div>
+              <div className="flex items-center justify-center gap-5 flex-col lg:flex-row">
+                <a
+                  href="https://beta.reactjs.org/learn/installation"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
+                    <span className="flex items-center gap-5 text-lg font-medium hover:scale-y-105 hover:font-bold">
+                      Learn React.js <HiArrowLongRight size={25} />
+                    </span>
+                    <p>The basics of React.js.</p>
+                  </div>
+                </a>
+                <a
+                  href="https://nextjs.org/learn/foundations/about-nextjs?utm_source=next-site&utm_medium=nav-cta&utm_campaign=next-website"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
+                    <span className="flex items-center gap-5 text-lg font-medium hover:scale-y-105 hover:font-bold">
+                      Learn Next.js <HiArrowLongRight size={25} />
+                    </span>
+                    <p>The basics of Next.js.</p>
+                  </div>
+                </a>
+                <a href="https://vercel.com/docs/concepts/get-started" target="_blank" rel="noreferrer">
+                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
+                    <span className="flex items-center gap-5 text-lg font-medium hover:scale-y-105 hover:font-bold">
+                      Learn Deploy <HiArrowLongRight size={25} />
+                    </span>
+                    <p>Vercel page docs.</p>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
