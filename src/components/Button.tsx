@@ -18,25 +18,16 @@ export default function Button() {
         button {
           position: relative;
           padding: 15px 45px;
-          background: #ac95fe;
+          background: #8248e5;
           font-size: 17px;
           font-weight: 500;
-          color: #181818;
-          border: 1px solid #ac95fe;
+          color: #eae0fb;
           border-radius: 8px;
           filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
         }
 
         button:hover {
-          border: 1px solid #9582f3;
-          background: linear-gradient(
-            85deg,
-            #a895fe,
-            #b297fc,
-            #9b94fa,
-            #a499fa,
-            #af9efa
-          );
+          background: #8248e5;
           animation: wind 2s ease-in-out infinite;
         }
 

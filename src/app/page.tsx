@@ -25,21 +25,20 @@ export default function Home() {
       </header>
       <main>
         <section>
-          <div className="pt-40 grid place-items-center grid-cols-1 gap-10">
+          <div className="pt-40 grid place-items-center grid-cols-1 gap-12">
             <div className="flex gap-5 items-center justify-center">
               <Image
                 src="/images/altusdigital-purple-logo.png"
                 alt="Altus Digital logo"
-                height={20}
-                width={60}
+                height={70}
+                width={110}
               />
-              <h1 className={`${koho.className} uppercase`}>
-                <span className="text-lg font-bold">Altus</span>
-                <br />
-                <span className="text-base font-medium text-violet-700 tracking-tight">
+              <div className={`${koho.className} uppercase flex flex-col`}>
+                <span className="text-6xl font-bold">Altus</span>
+                <span className="text-5xl font-medium text-violet-700 tracking-wide mt-[-12px]">
                   Digital
                 </span>
-              </h1>
+              </div>
             </div>
             <div className="pb-10 px-20">
               <div className="flex items-center justify-center gap-5 flex-col lg:flex-row">
@@ -67,7 +66,11 @@ export default function Home() {
                     <p>The basics of Next.js.</p>
                   </div>
                 </a>
-                <a href="https://vercel.com/docs/concepts/get-started" target="_blank" rel="noreferrer">
+                <a
+                  href="https://vercel.com/docs/concepts/get-started"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
                     <span className="flex items-center gap-5 text-lg font-medium hover:scale-y-105 hover:font-bold">
                       Learn Deploy <HiArrowLongRight size={25} />
