@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="grid place-items-center bg-[#1a2b62] pt-5">
-        <div className="pb-5 pt-10 md:pt-12 md:pb-8 px-16 flex items-center justify-center flex-col gap-5 rounded-xl">
+        <div className="pb-5 pt-10 md:py-8 px-16 flex items-center justify-center flex-col gap-5 rounded-xl">
           <Image
             alt="SF Logo Partner"
             src="/images/SF-PARTNER-LOGO1.png"
@@ -48,7 +48,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-slate-200 py-4 mx-20 md:mx-0 text-center border-t border-violet-500">
+        <div className="text-slate-200 py-5 mx-20 md:mx-0 text-center border-t border-violet-500">
           <h3 className="font-semibold">
             Copyright &#169; {new Date().getFullYear()} • Altus Digital Pty Ltd
             (ABN 94 638 335 716) • All Rights Reserved
