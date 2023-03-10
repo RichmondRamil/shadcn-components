@@ -4,6 +4,7 @@ import {
   AiFillTwitterCircle,
   AiFillMediumSquare,
 } from 'react-icons/ai';
+import { FaGlobeAsia } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -18,6 +19,15 @@ export default function Footer() {
           />
           <div className="flex flex-col items-center justify-center gap-2">
             <div className="text-slate-200 flex gap-2 items-center justify-center">
+              <span className="hover:bg-[#8248e5] p-2 rounded-full">
+                <a
+                  href="https://altus.digital"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaGlobeAsia size={23} />
+                </a>
+              </span>
               <span className="hover:bg-[#8248e5] p-2 rounded-full">
                 <a
                   href="https://www.linkedin.com/company/altusdigital"

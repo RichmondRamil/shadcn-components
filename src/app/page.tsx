@@ -1,12 +1,11 @@
-'use client';
-
 import { KoHo } from 'next/font/google';
 import Image from 'next/image';
 import Button from 'src/components/Button';
 import Footer from 'src/components/Footer';
 
+import { BsArrowRightShort } from 'react-icons/bs';
 import { HiArrowLongRight } from 'react-icons/hi2';
-import { notFound } from 'next/navigation'
+import { notFound } from 'next/navigation';
 
 const koho = KoHo({
   weight: ['400', '500', '700'],
@@ -16,10 +15,10 @@ const koho = KoHo({
 
 export default function Home() {
   // throw new Error('This is an error message')
-  
-  // if(true) {
-  //   notFound()
-  // }
+
+   if(true) {
+     notFound()
+   }
 
   return (
     <>
@@ -50,15 +49,18 @@ export default function Home() {
               </div>
             </div>
             <div className="pb-12 px-20">
-              <div className="flex items-center justify-center gap-5 flex-col lg:flex-row">
+              <div className="grid place-items-center gap-5 grid-cols-1 md:grid-cols-3">
                 <a
                   href="https://beta.reactjs.org/learn/installation"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
-                    <span className="flex items-center gap-5 text-lg font-medium hover:scale-y-105 hover:font-bold">
-                      Learn React.js <HiArrowLongRight size={25} />
+                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
+                    <span className="flex items-center justify-center gap-5 text-lg font-medium">
+                      Learn Reactjs{' '}
+                      <div className="text-slate-200 translate-y-[-2.8rem] translate-x-10 px-2 rounded-tr-xl rounded-bl-xl bg-violet-500">
+                        <BsArrowRightShort size={20} />
+                      </div>
                     </span>
                     <p>The basics of React.js.</p>
                   </div>
@@ -68,9 +70,12 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
-                    <span className="flex items-center gap-5 text-lg font-medium hover:scale-y-105 hover:font-bold">
-                      Learn Next.js <HiArrowLongRight size={25} />
+                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
+                    <span className="flex items-center justify-center gap-5 text-lg font-medium">
+                      Learn Next.js
+                      <div className="text-slate-200 translate-y-[-2.8rem] translate-x-10 px-2 rounded-tr-xl rounded-bl-xl bg-violet-500">
+                        <BsArrowRightShort size={20} />
+                      </div>
                     </span>
                     <p>The basics of Next.js.</p>
                   </div>
@@ -80,9 +85,12 @@ export default function Home() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer hover:bg-violet-300">
-                    <span className="flex items-center gap-5 text-lg font-medium hover:scale-y-105 hover:font-bold">
-                      Learn Deploy <HiArrowLongRight size={25} />
+                  <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
+                    <span className="flex items-center justify-center gap-5 text-lg font-medium">
+                      Learn Deploy
+                      <div className="text-slate-200 translate-y-[-2.8rem] translate-x-10 px-2 rounded-tr-xl rounded-bl-xl bg-violet-500">
+                        <BsArrowRightShort size={20} />
+                      </div>
                     </span>
                     <p>Vercel page docs.</p>
                   </div>
