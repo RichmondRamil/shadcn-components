@@ -28,7 +28,7 @@ export default function NotFound() {
         </div>
       </div>
       <div className="grid place-items-center py-10">
-        <div className="flex flex-col gap-10 items-center justify-center">
+        <div className="flex flex-col gap-20 items-center justify-center mt-[-0.2rem]">
           <Image
             src="/images/404.svg"
             alt="404 page not found"

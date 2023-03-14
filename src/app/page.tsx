@@ -4,7 +4,6 @@ import Button from 'src/components/Button';
 import Footer from 'src/components/Footer';
 
 import { BsArrowRightShort } from 'react-icons/bs';
-import { HiArrowLongRight } from 'react-icons/hi2';
 import { notFound } from 'next/navigation';
 
 const koho = KoHo({
@@ -31,7 +30,7 @@ export default function Home() {
       </header>
       <main>
         <section>
-          <div className="pt-44 grid place-items-center grid-cols-1 gap-12">
+          <div className="pt-44 grid place-items-center grid-cols-1 gap-16">
             <div className="flex gap-5 items-center justify-center">
               <Image
                 src="/images/altusdigital-purple-logo.png"
@@ -48,51 +47,56 @@ export default function Home() {
                 </span>
               </div>
             </div>
-            <div className="pb-12 px-20">
-              <div className="grid place-items-center gap-5 grid-cols-1 md:grid-cols-3">
+            <div className="pb-16 px-20">
+              <div className="grid place-items-center gap-5 grid-cols-1 lg:grid-cols-3">
                 <a
                   href="https://beta.reactjs.org/learn/installation"
                   target="_blank"
                   rel="noreferrer"
+                  className="w-full"
                 >
                   <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
-                    <span className="flex items-center justify-center gap-5 text-lg font-medium">
-                      Learn Reactjs{' '}
-                      <div className="text-slate-200 translate-y-[-2.8rem] translate-x-10 px-2 rounded-tr-xl rounded-bl-xl bg-violet-500">
-                        <BsArrowRightShort size={20} />
-                      </div>
-                    </span>
-                    <p>The basics of React.js.</p>
+                    <div className="text-slate-200 translate-y-[-2.5rem] translate-x-44 px-2 ml-[-7px] rounded-tr-xl rounded-bl-xl bg-violet-500 absolute">
+                      <BsArrowRightShort size={20} />
+                    </div>
+                    <div>
+                      <span className="text-lg font-medium">
+                        Learn React.js
+                      </span>
+                      <p>The basics of React.js.</p>
+                    </div>
                   </div>
                 </a>
                 <a
                   href="https://nextjs.org/learn/foundations/about-nextjs?utm_source=next-site&utm_medium=nav-cta&utm_campaign=next-website"
                   target="_blank"
                   rel="noreferrer"
+                  className="w-full"
                 >
                   <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
-                    <span className="flex items-center justify-center gap-5 text-lg font-medium">
-                      Learn Next.js
-                      <div className="text-slate-200 translate-y-[-2.8rem] translate-x-10 px-2 rounded-tr-xl rounded-bl-xl bg-violet-500">
-                        <BsArrowRightShort size={20} />
-                      </div>
-                    </span>
-                    <p>The basics of Next.js.</p>
+                    <div className="text-slate-200 translate-y-[-2.5rem] translate-x-44 px-2 ml-[-6px] rounded-tr-xl rounded-bl-xl bg-violet-500 absolute">
+                      <BsArrowRightShort size={20} />
+                    </div>
+                    <div>
+                      <span className="text-lg font-medium">Learn Next.js</span>
+                      <p>The basics of Next.js.</p>
+                    </div>
                   </div>
                 </a>
                 <a
                   href="https://vercel.com/docs/concepts/get-started"
                   target="_blank"
                   rel="noreferrer"
+                  className="w-full"
                 >
                   <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
-                    <span className="flex items-center justify-center gap-5 text-lg font-medium">
-                      Learn Deploy
-                      <div className="text-slate-200 translate-y-[-2.8rem] translate-x-10 px-2 rounded-tr-xl rounded-bl-xl bg-violet-500">
-                        <BsArrowRightShort size={20} />
-                      </div>
-                    </span>
-                    <p>Vercel page docs.</p>
+                    <div className="text-slate-200 translate-y-[-2.5rem] translate-x-44 px-2 ml-[-7px] rounded-tr-xl rounded-bl-xl bg-violet-500 absolute">
+                      <BsArrowRightShort size={20} />
+                    </div>
+                    <div>
+                      <span className="text-lg font-medium">Learn Deploy</span>
+                      <p>Vercel page docs.</p>
+                    </div>
                   </div>
                 </a>
               </div>

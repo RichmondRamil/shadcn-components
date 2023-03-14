@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-slate-200 py-5 mx-20 md:mx-0 text-center border-t border-violet-500">
+        <div className="text-slate-200 py-4 mx-20 md:mx-0 text-center border-t border-violet-500">
           <h3 className="font-semibold">
             Copyright &#169; {new Date().getFullYear()} • Altus Digital Pty Ltd
             (ABN 94 638 335 716) • All Rights Reserved
