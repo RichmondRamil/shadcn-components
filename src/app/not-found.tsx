@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Footer from '../components/Footer';
+import Footer from '../shared/components/Footer';
 import { KoHo } from 'next/font/google';
 
 const koho = KoHo({

@@ -2,9 +2,9 @@ import { KoHo } from 'next/font/google';
 import styles from './Button.module.css';
 
 import Image from 'next/image';
-import Icon1 from 'src/components/icon1.svg';
-import Icon2 from 'src/components/icon2.svg';
-import Icon3 from 'src/components/icon3.svg';
+import Icon1 from '@/shared/assets/svg/icon1.svg';
+import Icon2 from '@/shared/assets/svg/icon2.svg';
+import Icon3 from '@/shared/assets/svg/icon3.svg';
 
 const koho = KoHo({
   weight: ['400', '500', '700'],

@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 import { ConfigProvider } from 'antd'
 import { SessionProvider } from 'next-auth/react'
 // THEME
-import theme from './theme'
+import theme from '@/app/theme'
 interface IAppWrapperProps {
   children: ReactNode
 }
