@@ -1,10 +1,11 @@
 import { KoHo } from 'next/font/google';
 import Image from 'next/image';
-import Button from 'src/components/Button';
-import Footer from 'src/components/Footer';
+import Button from '@/shared/components/Button';
+import Footer from '@/shared/components/Footer';
 
 import { BsArrowRightShort } from 'react-icons/bs';
-import { notFound } from 'next/navigation';
+/* Used by 404 page error component*/
+// import { notFound } from 'next/navigation';
 
 const koho = KoHo({
   weight: ['400', '500', '700'],
@@ -13,11 +14,14 @@ const koho = KoHo({
 });
 
 export default function Home() {
+  /* 
+    For testing error, not-found and loading component
+  */
   // throw new Error('This is an error message')
 
-   if(true) {
-     notFound()
-   }
+  // if (true) {
+  //   notFound();
+  // }
 
   return (
     <>
