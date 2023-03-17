@@ -54,7 +54,7 @@ export default function Home() {
             <div className="pb-16 px-20">
               <div className="grid place-items-center gap-5 grid-cols-1 lg:grid-cols-3">
                 <a
-                  href="https://beta.reactjs.org/learn/installation"
+                  href="https://react.dev/learn"
                   target="_blank"
                   rel="noreferrer"
                   className="w-full"
