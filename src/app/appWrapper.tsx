@@ -1,18 +1,14 @@
-'use client'
+'use client';
 // DEPENDENCIES
-import { ReactNode } from 'react'
-import { ConfigProvider } from 'antd'
-import { SessionProvider } from 'next-auth/react'
-// THEME
-import theme from '@/app/theme'
+import { ReactNode } from 'react';
+import { SessionProvider } from 'next-auth/react';
+
 interface IAppWrapperProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 const AppWrapper = ({ children }: IAppWrapperProps) => (
-  <SessionProvider>
-    <ConfigProvider theme={theme}>{children}</ConfigProvider>
-  </SessionProvider>
-)
+  <SessionProvider>{children}</SessionProvider>
+);
 
-export default AppWrapper
+export default AppWrapper;

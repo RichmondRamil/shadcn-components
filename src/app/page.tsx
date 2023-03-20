@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Button from '@/shared/components/Button';
 import Footer from '@/shared/components/Footer';
 
-import { BsArrowRightShort } from 'react-icons/bs';
 /* Used by 404 page error component*/
 // import { notFound } from 'next/navigation';
 
@@ -61,7 +60,12 @@ export default function Home() {
                 >
                   <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
                     <div className="text-slate-200 translate-y-[-2.5rem] translate-x-44 px-2 ml-[-7px] rounded-tr-xl rounded-bl-xl bg-violet-500 absolute">
-                      <BsArrowRightShort size={20} />
+                      <Image
+                        src="/images/svg/arrow.svg"
+                        alt="Arrow Right"
+                        width={20}
+                        height={20}
+                      />
                     </div>
                     <div>
                       <span className="text-lg font-medium">
@@ -79,7 +83,12 @@ export default function Home() {
                 >
                   <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
                     <div className="text-slate-200 translate-y-[-2.5rem] translate-x-44 px-2 ml-[-6px] rounded-tr-xl rounded-bl-xl bg-violet-500 absolute">
-                      <BsArrowRightShort size={20} />
+                      <Image
+                        src="/images/svg/arrow.svg"
+                        alt="Arrow Right"
+                        width={20}
+                        height={20}
+                      />
                     </div>
                     <div>
                       <span className="text-lg font-medium">Learn Next.js</span>
@@ -95,7 +104,12 @@ export default function Home() {
                 >
                   <div className="p-10 border border-violet-300 rounded-2xl cursor-pointer">
                     <div className="text-slate-200 translate-y-[-2.5rem] translate-x-44 px-2 ml-[-7px] rounded-tr-xl rounded-bl-xl bg-violet-500 absolute">
-                      <BsArrowRightShort size={20} />
+                      <Image
+                        src="/images/svg/arrow.svg"
+                        alt="Arrow Right"
+                        width={20}
+                        height={20}
+                      />
                     </div>
                     <div>
                       <span className="text-lg font-medium">Learn Deploy</span>

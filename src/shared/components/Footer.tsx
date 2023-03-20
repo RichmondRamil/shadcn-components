@@ -1,10 +1,4 @@
 import Image from 'next/image';
-import {
-  AiFillLinkedin,
-  AiFillTwitterCircle,
-  AiFillMediumSquare,
-} from 'react-icons/ai';
-import { FaGlobeAsia } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -25,7 +19,12 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FaGlobeAsia size={23} />
+                  <Image
+                    src="/images/svg/globe.svg"
+                    alt="Altus Digital Website"
+                    width={24}
+                    height={24}
+                  />
                 </a>
               </span>
               <span className="hover:bg-[#8248e5] p-2 rounded-full">
@@ -34,7 +33,12 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiFillLinkedin size={25} />
+                  <Image
+                    src="/images/svg/linkedin.svg"
+                    alt="Altus Digital Website"
+                    width={24}
+                    height={24}
+                  />
                 </a>
               </span>
               <span className="hover:bg-[#8248e5] p-2 rounded-full">
@@ -43,7 +47,12 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiFillTwitterCircle size={25} />
+                  <Image
+                    src="/images/svg/twitter.svg"
+                    alt="Altus Digital Website"
+                    width={24}
+                    height={24}
+                  />
                 </a>
               </span>
               <span className="hover:bg-[#8248e5] p-2 rounded-full">
@@ -52,7 +61,12 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiFillMediumSquare size={25} />
+                  <Image
+                    src="/images/svg/medium.svg"
+                    alt="Altus Digital Website"
+                    width={24}
+                    height={24}
+                  />
                 </a>
               </span>
             </div>
