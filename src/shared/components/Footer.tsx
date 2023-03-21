@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import { FaGlobeAsia, FaTwitterSquare, FaLinkedin, FaMedium } from 'react-icons/fa';
 
 export default function Footer() {
   return (
     <footer>
       <div className="grid place-items-center bg-[#1a2b62] pt-5">
-        <div className="pb-5 pt-10 md:py-8 px-16 flex items-center justify-center flex-col gap-5 rounded-xl">
+        <div className="pb-5 pt-10 md:py-8 2xl:py-[2.48rem] px-16 flex items-center justify-center flex-col gap-5 rounded-xl">
           <Image
             alt="SF Logo Partner"
             src="/images/SF-PARTNER-LOGO1.png"
@@ -19,12 +20,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image
-                    src="/images/svg/globe.svg"
-                    alt="Altus Digital Website"
-                    width={24}
-                    height={24}
-                  />
+                  <FaGlobeAsia size={22} />
                 </a>
               </span>
               <span className="hover:bg-[#8248e5] p-2 rounded-full">
@@ -33,12 +29,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image
-                    src="/images/svg/linkedin.svg"
-                    alt="Altus Digital Website"
-                    width={24}
-                    height={24}
-                  />
+<FaLinkedin size={24} />
                 </a>
               </span>
               <span className="hover:bg-[#8248e5] p-2 rounded-full">
@@ -47,12 +38,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image
-                    src="/images/svg/twitter.svg"
-                    alt="Altus Digital Website"
-                    width={24}
-                    height={24}
-                  />
+<FaTwitterSquare size={24} />
                 </a>
               </span>
               <span className="hover:bg-[#8248e5] p-2 rounded-full">
@@ -61,18 +47,13 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image
-                    src="/images/svg/medium.svg"
-                    alt="Altus Digital Website"
-                    width={24}
-                    height={24}
-                  />
+<FaMedium size={24} />
                 </a>
               </span>
             </div>
           </div>
         </div>
-        <div className="text-slate-200 py-4 mx-20 md:mx-0 text-center border-t border-violet-500">
+        <div className="text-slate-200 py-[1.05rem] mx-20 md:mx-0 text-center border-t border-violet-500">
           <h3 className="font-semibold">
             Copyright &#169; {new Date().getFullYear()} • Altus Digital Pty Ltd
             (ABN 94 638 335 716) • All Rights Reserved
