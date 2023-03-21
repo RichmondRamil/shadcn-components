@@ -10,11 +10,6 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  modularizeImports: {
-    'heroicons/react/24/solid': {
-      transform: 'heroicons/react/24/solid/{{member}}'
-    }
-  }
 }
 
 module.exports = nextConfig
