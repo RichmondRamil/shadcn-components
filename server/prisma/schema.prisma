@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("PLANETSCALE_DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id           String      @id
+  email        String      @unique
+  name         String     @default("")
+  password     String     @default("")
+  refreshToken String?
+  createdAt    DateTime?   @default(now())
+  updatedAt    DateTime?
+}
+
+model NotUser {
+  id           String      @id
+  email        String      @unique
+  refreshToken String?
+  createdAt    DateTime?   @default(now())
+  updatedAt    DateTime?
+}
