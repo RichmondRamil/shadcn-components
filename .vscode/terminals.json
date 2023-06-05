@@ -1,0 +1,17 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "Client - Side",
+      "execute": true,
+      "focus": true,
+      "commands": ["cd client", "npm run dev"]
+    },
+    {
+      "name": "Server - Side",
+      "execute": true,
+      "focus": true,
+      "commands": ["cd server", "npm run start"]
+    }
+  ]
+}
