@@ -27,6 +27,7 @@
   - [DaisyUI](https://daisyui.com/components/) - as the Tailwind CSS component library. uses pure CSS and Tailwind utility classes, allowing developers to write clean HTML.
   - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) -as the React state management library for managing the state of your application.
   - [React-Router-Dom](https://reactrouter.com/en/main/start/tutorial) -as the React Router Library for managing dynamic routing in your applications
+  - [React-Query / Tanstack Query](https://tanstack.com/query/v3/docs/react/overview) -is a preconfigured data management library for ReactJS that allows for server-side state management, fetching, and caching of data, and error handling in a simple and declarative way without affecting the global state of the application1.
   - [Axios](https://axios-http.com/docs/intro) - for making HTTP requests to external APIs.
   - [DayJS](https://day.js.org/en/) - immutable date time library alternative to Moment.js with the same modern API
 
@@ -69,10 +70,16 @@ To use the boilerplate structure in your project, you can follow these steps:
     npx prisma db push dev
 ```
 
-- Start the development server by running the following command:
+- Start the development server by running the following command on your vscode:
 
 ```shell
-    npm run dev
+    Ctrl + Shift + P
+```
+
+- Enter the following commands and press enter:
+
+```shell
+    Terminals: Run
 ```
 
 - Open your web browser and navigate to http://localhost:3000 to view your application.
