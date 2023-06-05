@@ -11,8 +11,6 @@ if (envFound.error) {
 }
 
 export default {
-  // Server's Name
-  name: process.env.APP_NAME,
   // Server port
   port: parseInt(process.env.PORT, 10),
   // Bunyan logger
