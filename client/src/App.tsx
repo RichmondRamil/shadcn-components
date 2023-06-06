@@ -66,8 +66,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route element={<PrivateRoutes />}>
-            <Route element={<DashboardLayout />}>
-              <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route element={<Dashboard />}>
                 <Route path=":1" element={<h1>Dashboard</h1>} />
               </Route>
             </Route>

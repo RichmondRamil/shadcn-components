@@ -1,11 +1,11 @@
 {
-  "name": "bulletproof-nodejs",
+  "name": "ad-dev-boilerplate",
   "version": "1.0.0",
-  "description": "Bulletproof node.js",
+  "description": "ad-dev-boilerplate",
   "main": "src/app.ts",
   "scripts": {
     "build": "tsc",
-    "heroku-postbuild": "npm run build",
+    "server": "node build/app.js",
     "start": "nodemon",
     "inspect": "nodemon --inspect src/app.ts",
     "test": "jest",
@@ -34,6 +34,7 @@
     "@prisma/client": "^4.15.0",
     "@types/bunyan": "^1.8.8",
     "argon2": "^0.27.0",
+    "axios": "^1.4.0",
     "body-parser": "^1.19.0",
     "bunyan": "^1.8.15",
     "bunyan-format": "^0.2.1",
