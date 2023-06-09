@@ -3,7 +3,7 @@ import cors from 'cors';
 import routes from '@/api/routes';
 import config from '@/config';
 import helmet from 'helmet';
-export default ({ app }: { app: express.Application }) => {
+export default ({ app }: { app: express.Application }): void => {
   /**
    * Health Check endpoints
    * @TODO Explain why they are here
@@ -57,6 +57,7 @@ export default ({ app }: { app: express.Application }) => {
     res.json({
       errors: {
         message: err.message,
+        info: err.info,
       },
     });
   });
