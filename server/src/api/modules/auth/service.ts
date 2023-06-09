@@ -11,16 +11,18 @@ import { PrismaClient } from '@prisma/client';
 
 @Service()
 export default class AuthService {
-  // public async SignUp(body: any): Promise<{ user: IUser; token: string }> {
-  //   try {
-  //     const logger: loggerType = Container.get('logger');
-  //     const prisma: PrismaClient = Container.get('PrismaClient');
-  //     // Create an example usign the prisma client
-  //     const user = await prisma.user.create({ data: { ...body } });
-  //   } catch (e) {
-  //     throw e;
-  //   }
-  // }
+  public async SignUp(body: any): Promise<{ user: IUser }> {
+    try {
+      const logger: loggerType = Container.get('logger');
+      const prisma: PrismaClient = Container.get('PrismaClient');
+      // Create an example usign the prisma client
+      // const user = await prisma.user.create({ data: { ...body } });
+
+      return { user: {} as IUser };
+    } catch (e) {
+      throw e;
+    }
+  }
   // private generateToken(user) {
   //   const today = new Date();
   //   const exp = new Date(today);
