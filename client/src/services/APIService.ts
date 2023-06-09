@@ -9,10 +9,10 @@ interface IRequestParams {
   params?: object;
 }
 class APIService {
-  protected baseURL: string = config.API_URL;
+  protected baseURL: string = config.api.url;
 
   public buildURL(url: string): string {
-    return this.baseURL + '/' + url;
+    return this.baseURL + url;
   }
 
   public async get({ url, params }: IRequestParams) {
@@ -21,15 +21,15 @@ class APIService {
     return result ? result.data : null;
   }
   public async post({ url, data, params }: IRequestParams) {
-    const result = await axios.post(url, data, { params });
+    const result = await axios.post(this.buildURL(url), data, { params });
     return result ? result.data : null;
   }
   public async put({ url, data, params }: IRequestParams) {
-    const result = await axios.put(url, data, { params });
+    const result = await axios.put(this.buildURL(url), data, { params });
     return result ? result.data : null;
   }
   public async remove({ url, params }: IRequestParams) {
-    const result = await axios.delete(url, { params });
+    const result = await axios.delete(this.buildURL(url), { params });
     return result ? result.data : null;
   }
 }
