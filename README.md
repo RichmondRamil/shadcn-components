@@ -12,9 +12,9 @@
   - Node.js and npm (Node Package Manager) - v18.13.0
 
 - **😎 VS-CODE Extension:**
-
+  - ES7+ React/Redux/React-Native snippets - React/Redux and Javascript snippets in ES7+ with babel plugin features. This extension helps you by having some shortcut when creating a component.
   - Prettier - is an opinionated code formatter that supports a lot of different programming languages, like: JavaScript. JSON. JSX. CSS.
-  - Tailwind CSS IntelliSense - is an opinionated code formatter that supports a lot of different programming languages, like: JavaScript. JSON. JSX. CSS.
+  - Tailwind CSS IntelliSense - provide autocompletion, syntax highlighting and linting to tailwindcss classes.
   - Error Lens - is an extension which allows you to see error, warning and diagnostic messages in line with your code without having to hover or click on anything!
 
 ## 📦 Tech stack:
@@ -26,10 +26,16 @@
   - [TailwindCSS](https://tailwindcss.com/) - as the utility CSS framework for styling your application.
   - [DaisyUI](https://daisyui.com/components/) - as the Tailwind CSS component library. uses pure CSS and Tailwind utility classes, allowing developers to write clean HTML.
   - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) -as the React state management library for managing the state of your application.
-  - [React-Router-Dom](https://reactrouter.com/en/main/start/tutorial) -as the React Router Library for managing dynamic routing in your applications
-  - [React-Query / Tanstack Query](https://tanstack.com/query/v3/docs/react/overview) -is a preconfigured data management library for ReactJS that allows for server-side state management, fetching, and caching of data, and error handling in a simple and declarative way without affecting the global state of the application1.
+  - [React-Router-Dom](https://reactrouter.com/en/main/start/tutorial) -as the React Router Library for managing client side routing in your applications
+  - [React-Query / Tanstack Query](https://tanstack.com/query/v3/docs/react/overview) -is a preconfigured data management library for ReactJS that allows for server-side state management, fetching, and caching of data, and error handling in a simple and declarative way without affecting the global state of the application.
   - [Axios](https://axios-http.com/docs/intro) - for making HTTP requests to external APIs.
   - [DayJS](https://day.js.org/en/) - immutable date time library alternative to Moment.js with the same modern API
+  - [React Icons](https://react-icons.github.io/react-icons/) - collections of popular react icons such as font awesome and material icon.
+  - [Theme Change](https://www.npmjs.com/package/theme-change) - A tiny JS script to handle CSS themes.
+  - [Vite](https://vitejs.dev/) - A Frontend Tooling.
+  - [Typescript](https://www.typescriptlang.org/) - strongly typed programming language that compiles on JavaScript. Help the developers have less bug on the code.
+  - [Postcss](https://postcss.org/) - allows you to convert modern css to the one most browser can understand
+  - [Autoprefixer](https://autoprefixer.github.io/) - a postcss plugin that add vendor prefixes to CSS rules using values
 
 - **Server-Side Stack:**
 
@@ -41,6 +47,7 @@
   - [Prisma](https://www.prisma.io/docs/concepts/overview/what-is-prisma) - as the ORM for interacting the Database.
   - [Planet-Scale](https://planetscale.com/docs) - as the database using MySQL.
   - [DayJS](https://day.js.org/en/) - immutable date time library alternative to Moment.js with the same modern API
+
 
 ## ⚡️ Getting Started
 
