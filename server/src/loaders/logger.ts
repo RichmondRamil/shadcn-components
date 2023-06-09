@@ -1,10 +1,8 @@
 import config from '@/config';
 import bunyan from 'bunyan';
 import bunyanFormat from 'bunyan-format';
-// Create a new instance of the bunyan-format formatter
-const formatOut = bunyanFormat({ outputMode: 'short' });
 
-// Create a Bunyan stream using the formatter
+const formatOut = bunyanFormat({ outputMode: 'short' });
 const stream: bunyan.Stream = {
   level: config.logs.level as bunyan.LogLevel,
   stream: formatOut,
