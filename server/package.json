@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "ad-dev-boilerplate",
   "main": "src/app.ts",
+  "engines": {
+		"node": ">=18.13.0"
+	},
   "scripts": {
     "build": "tsc",
     "server": "node build/app.js",
@@ -28,7 +31,7 @@
     "node",
     "express"
   ],
-  "author": "Santiago Quinteros",
+  "author": "Altus Digital",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^4.15.0",
