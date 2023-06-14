@@ -48,7 +48,6 @@
   - [Planet-Scale](https://planetscale.com/docs) - as the database using MySQL.
   - [DayJS](https://day.js.org/en/) - immutable date time library alternative to Moment.js with the same modern API
 
-
 ## ⚡️ Getting Started
 
 To use the boilerplate structure in your project, you can follow these steps:
@@ -91,13 +90,27 @@ To use the boilerplate structure in your project, you can follow these steps:
 
 - Open your web browser and navigate to http://localhost:3000 to view your application.
 
-## 🥶 How To Use Prisma
+## 🤦‍♂️ Knowledge For Server Architecture
 
-**Creating Model Schema**
+### Server Architecture
 
-To create a new model schema in your Prisma configuration file, add a new model block with the desired fields:
+- The server architecture is based on the article provided below for the reason that the correct organization of your node.js project structure will avoid duplication of code, will improve stability, and potentially, will help you scale your services if is done correctly.
 
-```prisma
+- Here is the link for the [Blog](https://dev.to/santypk4/bulletproof-node-js-project-architecture-4epf)
+
+### How to use Type Dependency Injection tools
+
+- Dependency injection is an essential concept in object-oriented programming. It is a way to decouple the creation of objects from their usage. In this article, we will learn what dependency injection is and how we can use it in Node.js applications using the TypeDI library.
+
+- Here is the link for the [Blog](https://blog.logrocket.com/dependency-injection-node-js-typedi/#:~:text=Dependency%20injection%20is%20a%20design,Easily%20test%20our%20code)
+
+### How to use Prisma
+
+- Creating Model Schema
+
+  To create a new model schema in your Prisma configuration file, add a new model block with the desired fields:
+
+```
 model User {
   id       Int      @id @default(autoincrement())
   email    String   @unique
@@ -117,9 +130,9 @@ This example creates a Post model with an id, title, content, published, author,
 
 After updating the Prisma configuration file, you need to regenerate the Prisma client by running the npx prisma generate command again.
 
-**Using Prisma Client**
+- Using Prisma Client
 
-To use the Prisma client in your Next.js project, import it in your code and use the generated functions to interact with the database. For example, to create a new user in the database, you can use the following code:
+  To use the Prisma client in your Next.js project, import it in your code and use the generated functions to interact with the database. For example, to create a new user in the database, you can use the following code:
 
 ```typescript
 import { PrismaClient } from '@prisma/client';
@@ -138,9 +151,9 @@ const users = await prisma.user.findMany();
 
 ## 🐻 How to Create Global-State Variables Using Zustand
 
-_1. First create a store_
+- First create a store
 
-Your store is a hook! You can put anything in it: primitives, objects, functions. The set function merges state.
+  Your store is a hook! You can put anything in it: primitives, objects, functions. The set function merges state.
 
 ```typescript
 import { create } from 'zustand';
@@ -152,9 +165,9 @@ const useStore = create((set) => ({
 }));
 ```
 
-_2. Then bind your components, and that's it!_
+- Then bind your components, and that's it!
 
-You can use the hook anywhere, without the need of providers. Select your state and the consuming component will re-render when that state changes.
+  You can use the hook anywhere, without the need of providers. Select your state and the consuming component will re-render when that state changes.
 
 ```typescript
 function BearCounter() {
