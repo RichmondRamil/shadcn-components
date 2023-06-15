@@ -14,9 +14,15 @@
   - TypeScript `npm install -g typescript`
 
 - **😎 VS-CODE Extension:**
+
+  - Terminals Manager by Fabio Spampinato - An extension for setting-up multiple terminals at once, or just running some commands.
+
   - ES7+ React/Redux/React-Native snippets - React/Redux and Javascript snippets in ES7+ with babel plugin features. This extension helps you by having some shortcut when creating a component.
+
   - Prettier - is an opinionated code formatter that supports a lot of different programming languages, like: JavaScript. JSON. JSX. CSS.
+
   - Tailwind CSS IntelliSense - provide autocompletion, syntax highlighting and linting to tailwindcss classes.
+
   - Error Lens - is an extension which allows you to see error, warning and diagnostic messages in line with your code without having to hover or click on anything!
 
 ## 📦 Tech stack:
