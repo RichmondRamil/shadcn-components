@@ -11,6 +11,8 @@
 
   - Node.js and npm (Node Package Manager) - v18.13.0
 
+  - TypeScript `npm install -g typescript`
+
 - **😎 VS-CODE Extension:**
   - ES7+ React/Redux/React-Native snippets - React/Redux and Javascript snippets in ES7+ with babel plugin features. This extension helps you by having some shortcut when creating a component.
   - Prettier - is an opinionated code formatter that supports a lot of different programming languages, like: JavaScript. JSON. JSX. CSS.
