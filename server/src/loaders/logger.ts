@@ -4,16 +4,16 @@ import bunyanFormat from 'bunyan-format';
 
 const formatOut = bunyanFormat({ outputMode: 'short' });
 const stream: bunyan.Stream = {
-  level: config.logs.level as bunyan.LogLevel,
-  stream: formatOut,
+	level: config.logs.level as bunyan.LogLevel,
+	stream: formatOut,
 };
 
 const loggConfig: bunyan.LoggerOptions = {
-  name: config.logs.name,
-  level: config.logs.level as bunyan.LogLevel,
-  streams: [stream],
-  serializers: bunyan.stdSerializers,
-  src: true,
+	name: config.logs.name,
+	level: config.logs.level as bunyan.LogLevel,
+	streams: [stream],
+	serializers: bunyan.stdSerializers,
+	src: true,
 };
 
 const logger = bunyan.createLogger(loggConfig);

@@ -7,20 +7,20 @@ import { Container } from 'typedi';
 import AuthController from './controller';
 
 export default () => {
-  const app = Router();
-  const authController = Container.get(AuthController);
+	const app = Router();
+	const authController = Container.get(AuthController);
 
-  app.post(
-    '/signup',
-    celebrate({
-      body: Joi.object({
-        name: Joi.string().required(),
-        email: Joi.string().required(),
-        password: Joi.string().required(),
-      }),
-    }),
-    authController.signUp,
-  );
+	app.post(
+		'/signup',
+		celebrate({
+			body: Joi.object({
+				name: Joi.string().required(),
+				email: Joi.string().required(),
+				password: Joi.string().required(),
+			}),
+		}),
+		authController.signUp,
+	);
 
-  return app;
+	return app;
 };
