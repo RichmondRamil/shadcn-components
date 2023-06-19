@@ -2,7 +2,7 @@
 import axios from 'axios';
 import pLimit from 'p-limit';
 // INTERFACES
-import IAuthObj from '../../interfaces/IAuthObj';
+import IAuthObj from './interfaces/IAuthObj';
 
 export default class RestService {
 	private authObj: IAuthObj;
