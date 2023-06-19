@@ -3,7 +3,7 @@ import axios from 'axios';
 import { XMLBuilder, XMLParser } from 'fast-xml-parser';
 
 // INTERFACES
-import IAuthObj from '../../interfaces/IAuthObj';
+import IAuthObj from './interfaces/IAuthObj';
 
 // ============== UTILS FUNCTIONS ==============
 export default class SoapService {
