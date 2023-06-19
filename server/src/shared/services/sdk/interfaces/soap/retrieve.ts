@@ -1,5 +1,5 @@
 export interface IRetrieveResponse {
-  OverallStatus: string;
-  RequestID: string;
-  Results: any[];
+	OverallStatus: string;
+	RequestID: string;
+	Results: any[];
 }
