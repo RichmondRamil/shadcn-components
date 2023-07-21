@@ -3,18 +3,7 @@ import axios from 'axios';
 import { XMLBuilder, XMLParser } from 'fast-xml-parser';
 
 // INTERFACES
-import IAuthObj from './interfaces/IAuth';
-import {
-	IRetrieveRequest,
-	IScheduleRequest,
-	IApiRequestParams,
-	IFilter,
-	ICreateRequest,
-	IExecuteRequest,
-	IDeleteRequest,
-	IUpdateRequest,
-	IObjects,
-} from './interfaces/ISoap';
+import IAuthObj from './interfaces/IAuthObj';
 
 // ============== UTILS FUNCTIONS ==============
 export default class SoapService {
@@ -22,7 +11,7 @@ export default class SoapService {
 	constructor(authObjParams: IAuthObj) {
 		this.authObj = authObjParams;
 	}
-	public async retrieve(retrieveRequest: IRetrieveRequest) {
+	public async retrieve(retrieveRequest?: IRetrieveRequest) {
 		if (!Array.isArray(retrieveRequest.Properties)) {
 			throw new Error('Retrieve request requires one or more properties');
 		}
@@ -43,7 +32,7 @@ export default class SoapService {
 		});
 	}
 
-	public async retrieveBulk(retrieveRequest: IRetrieveRequest) {
+	public async retrieveBulk(retrieveRequest?: IRetrieveRequest) {
 		let status;
 		let resultsBulk;
 		do {
@@ -64,12 +53,12 @@ export default class SoapService {
 		return resultsBulk;
 	}
 
-	public async create(createRequest: ICreateRequest) {
+	public async create(defaultRequest?: IDefaultRequest) {
 		const soapBody = {
 			CreateRequest: {
 				'@_xmlns': 'http://exacttarget.com/wsdl/partnerAPI',
-				Objects: { ...createRequest.Properties, '@_xsi:type': createRequest.ObjectType },
-				Options: createRequest.Options || {},
+				Objects: { ...defaultRequest.properties, '@_xsi:type': defaultRequest.objectType },
+				Options: defaultRequest.options || {},
 			},
 		};
 
@@ -80,22 +69,15 @@ export default class SoapService {
 		});
 	}
 
-	public async update(updateRequest: IUpdateRequest) {
-		if (!Array.isArray(updateRequest.Objects)) {
-			throw new Error('Properties must be an array');
-		}
-		const tempObj = updateRequest.Objects.map((element: IObjects) => {
-			return {
-				'@_xsi:type': element.ObjectType,
-				...element.Properties,
-			};
-		});
-
+	public async update(defaultRequest?: IDefaultRequest) {
 		const soapBody = {
 			UpdateRequest: {
 				'@_xmlns': 'http://exacttarget.com/wsdl/partnerAPI',
-				Objects: tempObj,
-				Options: updateRequest.Options || {},
+				Objects: {
+					'@_xsi:type': defaultRequest.objectType,
+					...defaultRequest.properties,
+				},
+				Options: defaultRequest.options || {},
 			},
 		};
 		return await this._apiRequest({
@@ -105,12 +87,12 @@ export default class SoapService {
 		});
 	}
 
-	public async deleteMethod(deleteRequest: IDeleteRequest) {
+	public async deleteMethod(defaultRequest: IDefaultRequest) {
 		const soapBody = {
 			DeleteRequest: {
 				'@_xmlns': 'http://exacttarget.com/wsdl/partnerAPI',
-				Objects: { '@_xsi:type': deleteRequest.ObjectType, ...deleteRequest.Properties },
-				Options: deleteRequest.Options || {},
+				Objects: { '@_xsi:type': defaultRequest.objectType, ...defaultRequest.properties },
+				Options: defaultRequest.options || {},
 			},
 		};
 		return await this._apiRequest({
@@ -166,15 +148,15 @@ export default class SoapService {
 		});
 	}
 
-	public async execute(executeRequest: IExecuteRequest) {
+	public async execute(type: string, properties: string[]) {
 		return await this._apiRequest({
 			action: 'Execute',
 			req: {
 				ExecuteRequestMsg: {
 					'@_xmlns': 'http://exacttarget.com/wsdl/partnerAPI',
 					Requests: {
-						Name: executeRequest.Requests.Name,
-						Parameters: executeRequest.Requests.Parameters,
+						Name: type,
+						Parameters: properties,
 					},
 				},
 			},
@@ -182,7 +164,6 @@ export default class SoapService {
 		});
 	}
 
-	// !!!!FIX TYPE INTERFACE HERE THERES ALREADY A TYPE INTERFACE ON THE ISOAP API
 	public async perform(type: string, action: string, definition: { [key: string]: any }) {
 		definition['@_xsi:type'] = type;
 
@@ -228,8 +209,7 @@ export default class SoapService {
 
 	private _buildEnvelope(request: any, token: string) {
 		const jsonToXml = new XMLBuilder({ ignoreAttributes: false });
-
-		const xmlSoapEnvelope = jsonToXml.build({
+		return jsonToXml.build({
 			Envelope: {
 				Body: request,
 				'@_xmlns': 'http://schemas.xmlsoap.org/soap/envelope/',
@@ -242,24 +222,31 @@ export default class SoapService {
 				},
 			},
 		});
-		return xmlSoapEnvelope;
 	}
 
-	private _parseFilter(filter: IFilter) {
+	private _parseFilter(filter: any) {
+		let filterType = 'Simple';
 		const obj: any = {};
 
-		if ('LeftOperand' in filter && 'RightOperand' in filter) {
-			obj.LeftOperand = this._parseFilter(filter.LeftOperand);
-
-			obj.LogicalOperator = filter.LogicalOperator;
-			obj.RightOperand = this._parseFilter(filter.RightOperand);
-			obj['@_xsi:type'] = 'ComplexFilterPart';
-		} else {
-			obj.Property = filter.Property;
-			obj.SimpleOperator = filter.SimpleOperator;
-			obj.Value = filter.Value;
-			obj['@_xsi:type'] = 'SimpleFilterPart';
+		if (typeof filter.leftOperand === 'object' && typeof filter.rightOperand === 'object') {
+			filterType = 'Complex';
 		}
+
+		switch (filterType.toLowerCase()) {
+			case 'simple':
+				obj.Property = filter.leftOperand;
+				obj.SimpleOperator = filter.operator;
+				obj.Value = filter.rightOperand;
+				break;
+			case 'complex':
+				obj.LeftOperand = this._parseFilter(filter.leftOperand);
+				obj.LogicalOperator = filter.operator;
+				obj.RightOperand = this._parseFilter(filter.leftOperand);
+				break;
+		}
+
+		obj['@_xsi:type'] = filterType + 'FilterPart';
+
 		return obj;
 	}
 
@@ -314,6 +301,95 @@ export default class SoapService {
 }
 
 // ==================== IN-BUILT FUNCTIONS ====================
+
+// ============== ENUMS ==============
+enum EOperator {
+	equals = 'equals',
+	notEquals = 'notEquals',
+	greaterThan = 'greaterThan',
+	lessThan = 'lessThan',
+	isNotNull = 'isNotNull',
+	isNull = 'isNull',
+	greaterThanOrEqual = 'greaterThanOrEqual',
+	lessThanOrEqual = 'lessThanOrEqual',
+	between = 'between',
+	IN = 'IN',
+	like = 'like',
+}
+
+// ============== INTERFACE ==============
+interface IApiRequestParams {
+	action: string;
+	req: Record<string, any>;
+	key: string;
+}
+
+interface IFilter {
+	leftOperand: string;
+	operator: EOperator;
+	rightOperand: string;
+}
+
+interface IRetrieveOptions {
+	BatchSize?: number;
+	IncludeObjects?: boolean;
+	OnlyIncludeBase?: boolean;
+	CallsInConversation?: number;
+	ConversationID?: string;
+	Priority?: string;
+	RequestType?: string;
+	SaveOptions?: any;
+	ScheduledTime?: string;
+	SendResponseTo?: any;
+	SequenceCode?: string;
+}
+
+interface IDefaultOptions {
+	CallsInConversation?: number;
+	ConversationID?: string;
+	Priority?: string;
+	RequestType?: string;
+	SaveOptions?: any;
+	ScheduledTime?: string;
+	SendResponseTo?: any;
+	SequenceCode?: string;
+}
+
+interface IRetrieveRequest {
+	ClientIDs?: {
+		Client: {
+			ID: string;
+		};
+	};
+	ContinueRequest?: string;
+	Filter?: IFilter;
+	ObjectType: string;
+	Options?: IRetrieveOptions;
+	PartnerProperties?: string[];
+	Properties: string[];
+	QueryAllAccounts?: boolean;
+	RepeatLastResult?: any;
+	RetrieveAllSinceLastBatch?: boolean;
+}
+
+interface IDefaultRequest {
+	objectType: string;
+	properties: string[];
+	options?: IDefaultOptions;
+}
+
+interface IScheduleRequest {
+	Action: string;
+	Interactions: string[];
+	Options: IDefaultOptions;
+	OverallStatus: string;
+	OverallStatusMessage: string;
+	RequestID: string;
+	Schedule: string;
+	ObjectType: string;
+}
+
+// ============== INTERFACE ==============
 class SOAPError extends Error {
 	code;
 	response;

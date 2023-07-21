@@ -19,11 +19,15 @@ export default {
 		name: process.env.LOG_NAME,
 	},
 	// API configs
-	api: {
-		prefix: '/api',
-	},
+	api: { prefix: '/api' },
 	// JWT configs
-	jwt: {
-		secret: process.env.JWT_SECRET,
+	jwt: { secret: process.env.JWT_SECRET },
+	// SFMC configs
+	sfmc: {
+		clientId: process.env.SFMC_CLIENT_ID,
+		clientSecret: process.env.SFMC_CLIENT_SECRET,
+		tenantId: process.env.SFMC_TENANT_ID,
+		accountId: process.env.SFMC_ACCOUNT_ID,
+		redirectUri: process.env.SFMC_REDIRECT_URI,
 	},
 };

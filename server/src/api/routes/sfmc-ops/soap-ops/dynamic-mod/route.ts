@@ -5,21 +5,22 @@ import { celebrate, Joi } from 'celebrate';
 import { Container } from 'typedi';
 
 import AuthController from './controller';
+import { error } from 'console';
 
 export default () => {
 	const app = Router();
 	const authController = Container.get(AuthController);
 
 	app.post(
-		'/signup',
+		'/',
 		celebrate({
 			body: Joi.object({
-				name: Joi.string().required(),
-				email: Joi.string().required(),
-				password: Joi.string().required(),
+				Retrieve: Joi.object(),
+				Describe: Joi.string(),
+				Update: Joi.object(),
 			}),
 		}),
-		authController.signUp,
+		authController.dynamic,
 	);
 
 	return app;

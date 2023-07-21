@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import auth from '../modules/auth/route';
+import auth from './auth-mod/route';
 
 export default (): Router => {
 	const app = Router();
