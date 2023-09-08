@@ -1,14 +1,11 @@
 // EXPRESS
-import { Router, Request, Response, NextFunction } from 'express';
+import { Router } from 'express';
 // DEPENDENCIES
 import { celebrate, Joi } from 'celebrate';
-import { Container } from 'typedi';
-
 import AuthController from './controller';
 
 export default () => {
 	const app = Router();
-	const authController = Container.get(AuthController);
 
 	app.post(
 		'/request-token',
@@ -17,7 +14,7 @@ export default () => {
 				code: Joi.string().required(),
 			}),
 		}),
-		authController.requestToken,
+		AuthController.requestToken,
 	);
 
 	app.post(
@@ -27,7 +24,7 @@ export default () => {
 				code: Joi.string().required(),
 			}),
 		}),
-		authController.refreshToken,
+		AuthController.refreshToken,
 	);
 
 	return app;

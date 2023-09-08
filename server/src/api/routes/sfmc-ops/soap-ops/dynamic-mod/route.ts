@@ -1,15 +1,12 @@
 // EXPRESS
-import { Router, Request, Response, NextFunction } from 'express';
+import { Router } from 'express';
 // DEPENDENCIES
 import { celebrate, Joi } from 'celebrate';
-import { Container } from 'typedi';
 
 import AuthController from './controller';
-import { error } from 'console';
 
 export default () => {
 	const app = Router();
-	const authController = Container.get(AuthController);
 
 	app.post(
 		'/',
@@ -20,7 +17,7 @@ export default () => {
 				Update: Joi.object(),
 			}),
 		}),
-		authController.dynamic,
+		AuthController.dynamic,
 	);
 
 	return app;
