@@ -1,5 +1,5 @@
-import admin from './admin-ops';
-import sfmc from './sfmc-ops';
+import admin from './admin-dir';
+import sfmc from './sfmc-dir';
 import { Router } from 'express';
 
 export default (): Router => {
