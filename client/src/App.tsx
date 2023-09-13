@@ -16,69 +16,68 @@ import PublicRoutes from './shared/components/hoc/PublicRoute';
 // Layout
 import DashboardLayout from './shared/components/layout/Dashboard';
 // THEME AND CSS
-import { themeChange } from 'theme-change';
+import { ThemeProvider } from './lib/shadcn/components/theme-provider';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
-  async function axiosInterceptor() {
-    axios.interceptors.request.use(
-      (config) => {
-        // setIsLoading(true);
-        return config;
-      },
-      (error) => {
-        setIsLoading(false);
-        return Promise.reject(error);
-      },
-    );
+	async function axiosInterceptor() {
+		axios.interceptors.request.use(
+			(config) => {
+				// setIsLoading(true);
+				return config;
+			},
+			(error) => {
+				setIsLoading(false);
+				return Promise.reject(error);
+			},
+		);
 
-    axios.interceptors.response.use(
-      (response) => {
-        // set loading to false
-        setIsLoading(false);
-        return response;
-      },
-      (error) => {
-        console.log('error', error);
-        setIsLoading(false);
-        if (!error.response) {
-          // TODO: PUT YOUR ERROR MODAL HERE
+		axios.interceptors.response.use(
+			(response) => {
+				// set loading to false
+				setIsLoading(false);
+				return response;
+			},
+			(error) => {
+				console.log('error', error);
+				setIsLoading(false);
+				if (!error.response) {
+					// TODO: PUT YOUR ERROR MODAL HERE
 
-          return;
-        }
-        // Show the error message
-        if (error.response.data.message) {
-          // TODO: PUT YOUR ERROR MODAL HERE
-        }
-      },
-    );
-  }
+					return;
+				}
+				// Show the error message
+				if (error.response.data.message) {
+					// TODO: PUT YOUR ERROR MODAL HERE
+				}
+			},
+		);
+	}
 
-  useEffect(() => {
-    axiosInterceptor();
-    themeChange(false);
-  }, []);
-  return (
-    <>
-      <Loader isLoading={isLoading} />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route element={<PrivateRoutes />}>
-            <Route path="/dashboard" element={<DashboardLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path="contact" element={<h1>Contact</h1>} />
-            </Route>
-          </Route>
-          <Route element={<PublicRoutes />}>
-            <Route path="/login" element={<LoginPage />} />
-          </Route>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
+	useEffect(() => {
+		axiosInterceptor();
+	}, []);
+	return (
+		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+			<Loader isLoading={isLoading} />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route element={<PrivateRoutes />}>
+						<Route path="/dashboard" element={<DashboardLayout />}>
+							<Route index element={<Dashboard />} />
+							<Route path="contact" element={<h1>Contact</h1>} />
+						</Route>
+					</Route>
+					<Route element={<PublicRoutes />}>
+						<Route path="/login" element={<LoginPage />} />
+					</Route>
+					<Route path="*" element={<NotFoundPage />} />
+				</Routes>
+			</BrowserRouter>
+		</ThemeProvider>
+	);
 }
 
 export default App;
