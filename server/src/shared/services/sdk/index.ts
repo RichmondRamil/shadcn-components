@@ -5,12 +5,12 @@ import SoapServices from './SoapService';
 import IAuthObj from './interfaces/IAuth';
 
 export default class SDKServices {
-  public rest: RestService;
-  public soap: SoapServices;
-  constructor(token: string) {
-    const authObj: IAuthObj = decrypt(token);
+	public rest: RestService;
+	public soap: SoapServices;
+	constructor(token: string) {
+		const authObj: IAuthObj = decrypt(token);
 
-    this.rest = new RestService(authObj);
-    this.soap = new SoapServices(authObj);
-  }
+		this.rest = new RestService(authObj);
+		this.soap = new SoapServices(authObj);
+	}
 }

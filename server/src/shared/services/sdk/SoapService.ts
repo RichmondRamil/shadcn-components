@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // DEPENDENCIES
 import axios from 'axios';
 import { XMLBuilder, XMLParser } from 'fast-xml-parser';
@@ -14,6 +15,7 @@ import {
 	IDeleteRequest,
 	IUpdateRequest,
 	IObjects,
+	IDefaultResponse,
 } from './interfaces/ISoap';
 
 // ============== UTILS FUNCTIONS ==============
@@ -22,7 +24,7 @@ export default class SoapService {
 	constructor(authObjParams: IAuthObj) {
 		this.authObj = authObjParams;
 	}
-	public async retrieve(retrieveRequest: IRetrieveRequest) {
+	public async retrieve(retrieveRequest: IRetrieveRequest): Promise<IDefaultResponse> {
 		if (!Array.isArray(retrieveRequest.Properties)) {
 			throw new Error('Retrieve request requires one or more properties');
 		}
@@ -43,14 +45,14 @@ export default class SoapService {
 		});
 	}
 
-	public async retrieveBulk(retrieveRequest: IRetrieveRequest) {
+	public async retrieveBulk(retrieveRequest: IRetrieveRequest): Promise<IDefaultResponse> {
 		let status;
 		let resultsBulk;
 		do {
 			const resultsBatch = await this.retrieve(retrieveRequest);
 			if (resultsBulk) {
 				// once first batch is done, the follow just add to result payload
-				resultsBulk.Results.push(...resultsBatch.Results);
+				resultsBulk.Results[0].push(...resultsBatch.Results[0]);
 			} else {
 				resultsBulk = resultsBatch;
 			}
@@ -64,11 +66,22 @@ export default class SoapService {
 		return resultsBulk;
 	}
 
-	public async create(createRequest: ICreateRequest) {
+	public async create(createRequest: ICreateRequest): Promise<IDefaultResponse> {
+		if (!Array.isArray(createRequest.Objects)) {
+			throw new Error('Objects must be an array');
+		}
+
+		const tempObj = createRequest.Objects.map((element: IObjects) => {
+			return {
+				'@_xsi:type': element.ObjectType,
+				...element.Properties,
+			};
+		});
+
 		const soapBody = {
 			CreateRequest: {
 				'@_xmlns': 'http://exacttarget.com/wsdl/partnerAPI',
-				Objects: { ...createRequest.Properties, '@_xsi:type': createRequest.ObjectType },
+				Objects: tempObj,
 				Options: createRequest.Options || {},
 			},
 		};
@@ -80,9 +93,9 @@ export default class SoapService {
 		});
 	}
 
-	public async update(updateRequest: IUpdateRequest) {
+	public async update(updateRequest: IUpdateRequest): Promise<IDefaultResponse> {
 		if (!Array.isArray(updateRequest.Objects)) {
-			throw new Error('Properties must be an array');
+			throw new Error('Objects must be an array');
 		}
 		const tempObj = updateRequest.Objects.map((element: IObjects) => {
 			return {
@@ -105,7 +118,7 @@ export default class SoapService {
 		});
 	}
 
-	public async deleteMethod(deleteRequest: IDeleteRequest) {
+	public async deleteMethod(deleteRequest: IDeleteRequest): Promise<IDefaultResponse> {
 		const soapBody = {
 			DeleteRequest: {
 				'@_xmlns': 'http://exacttarget.com/wsdl/partnerAPI',
@@ -120,7 +133,7 @@ export default class SoapService {
 		});
 	}
 
-	public async schedule(scheduleRequest: IScheduleRequest) {
+	public async schedule(scheduleRequest: IScheduleRequest): Promise<IDefaultResponse> {
 		const soapBody: any = {
 			ScheduleRequestMsg: {
 				'@_xmlns': 'http://exacttarget.com/wsdl/partnerAPI',
@@ -228,7 +241,6 @@ export default class SoapService {
 
 	private _buildEnvelope(request: any, token: string) {
 		const jsonToXml = new XMLBuilder({ ignoreAttributes: false });
-
 		const xmlSoapEnvelope = jsonToXml.build({
 			Envelope: {
 				Body: request,
@@ -263,6 +275,7 @@ export default class SoapService {
 		return obj;
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	private _parseResponse(response: Record<string, any>, key: any) {
 		const xmlToJson = new XMLParser({ ignoreAttributes: true });
 		const soapBody = xmlToJson.parse(response.data)?.['soap:Envelope']?.['soap:Body'];
@@ -284,7 +297,7 @@ export default class SoapService {
 		throw new SOAPError(null, response, soapBody);
 	}
 
-	private async _apiRequest(options: IApiRequestParams) {
+	private async _apiRequest(options: IApiRequestParams): Promise<IDefaultResponse> {
 		const requestOptions = {
 			method: 'POST',
 			baseURL: this.authObj.soap_instance_url,

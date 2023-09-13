@@ -22,9 +22,8 @@ export interface IRetrieveRequest {
 }
 
 export interface ICreateRequest {
-	ObjectType: string;
-	Properties: (string | IAPIObject)[];
-	Options?: ICreateOptions;
+	Objects: IObjects[];
+	Options?: IUpdateOptions;
 	RequestID?: string;
 }
 
@@ -70,6 +69,14 @@ export interface IPerformRequest {
 	OverallStatus: string;
 	OverallStatusMessage: string;
 	RequestID?: string;
+}
+
+// ------------ RESPONSES ------------
+export interface IDefaultResponse {
+	OverallStatus: string;
+	OverallStatusMessage: string;
+	RequestID: string;
+	Results: any[];
 }
 
 // ------------ OPTIONS ------------
@@ -122,7 +129,7 @@ export interface IDefaultOptions {
 interface ISimpleFilter {
 	Property: string;
 	SimpleOperator: ISimpleOperator;
-	Value: string;
+	Value: string | string[];
 }
 
 interface IComplexFilter {
@@ -172,5 +179,5 @@ interface IAPIObject {
 
 export interface IObjects {
 	ObjectType: string;
-	Properties: IAPIObject;
+	Properties: IAPIObject | Record<string, any>;
 }
