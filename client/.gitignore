@@ -44,3 +44,6 @@ pnpm-lock.yaml
 
 # vscode
 .vscode
+
+# Vite
+dist
