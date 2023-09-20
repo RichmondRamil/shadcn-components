@@ -42,9 +42,7 @@ export default ({ app }: { app: express.Application }): void => {
 	/// Error handlers
 	app.use((err, req, res, next) => {
 		errorHandler(err);
-		console.log();
-		res.status(err.status || 500);
-		res.json({
+		return res.status(err.status || 500).json({
 			message: err.message,
 			info: err,
 		});
