@@ -3,16 +3,14 @@ import cors from 'cors';
 import routes from '@/api/routes';
 import config from '@/config';
 import helmet from 'helmet';
+import { errorHandler } from '@/shared/utils/handlers';
+
 export default ({ app }: { app: express.Application }): void => {
 	/**
 	 * Health Check endpoints
-	 * @TODO Explain why they are here
 	 */
 	app.get('/status', (req, res) => {
-		res.status(200).end();
-	});
-	app.head('/status', (req, res) => {
-		res.status(200).end();
+		res.status(200).json({ status: 'OK' });
 	});
 
 	// Helmet helps secure Express apps by setting HTTP response headers. It's not a silver bullet, but it can help!
@@ -29,7 +27,7 @@ export default ({ app }: { app: express.Application }): void => {
 	app.use(cors());
 
 	// Transforms the raw string of req.body into json
-	app.use(express.json());
+	app.use(express.json({ limit: '5mb' }));
 
 	// Load API routes
 	app.use(config.api.prefix, routes());
@@ -41,24 +39,14 @@ export default ({ app }: { app: express.Application }): void => {
 		next(err);
 	});
 
-	/// error handlers
+	/// Error handlers
 	app.use((err, req, res, next) => {
-		/**
-		 * Handle 401 thrown by express-jwt library
-		 */
-		if (err.name === 'UnauthorizedError') {
-			return res.status(err.status).send({ message: err.message }).end();
-		}
-		return next(err);
-	});
-
-	app.use((err, req, res, next) => {
+		errorHandler(err);
+		console.log();
 		res.status(err.status || 500);
 		res.json({
-			errors: {
-				message: err.message,
-				info: err.info,
-			},
+			message: err.message,
+			info: err,
 		});
 	});
 };
