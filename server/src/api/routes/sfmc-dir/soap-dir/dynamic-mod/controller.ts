@@ -16,7 +16,6 @@ async function dynamic(req: Request, res: Response, next: NextFunction): Promise
 		const result = await AuthService.dynamic(req.body, token);
 		return res.status(200).json(result);
 	} catch (e) {
-		errorHandler(e);
 		return next(e);
 	}
 }

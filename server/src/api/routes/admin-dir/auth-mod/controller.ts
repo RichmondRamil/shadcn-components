@@ -17,7 +17,6 @@ async function requestToken(req: Request, res: Response, next: NextFunction): Pr
 
 		return res.status(201).json({ expiration, token });
 	} catch (e) {
-		errorHandler(e);
 		return next(e);
 	}
 }
@@ -29,7 +28,6 @@ async function refreshToken(req: Request, res: Response, next: NextFunction): Pr
 
 		return res.status(201).json({ expiration, token });
 	} catch (e) {
-		errorHandler(e);
 		return next(e);
 	}
 }
