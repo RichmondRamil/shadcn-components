@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import rest from './rest-ops';
-import soap from './soap-ops';
+import rest from './rest-dir';
+import soap from './soap-dir';
 
 export default (): Router => {
 	const app = Router();
