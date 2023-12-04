@@ -3,7 +3,8 @@
 		/* File Path */
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@shadcn/*": ["./src/dependencies/shadcn/*"]
 		},
 
 		"target": "ESNext",
@@ -25,6 +26,6 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src"],
+	"include": ["src", "dependecies/shadcn"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
