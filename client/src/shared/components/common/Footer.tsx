@@ -1,6 +1,11 @@
-import { FaGlobeAsia, FaTwitterSquare, FaLinkedin, FaMedium } from 'react-icons/fa';
+import {
+	FaGlobeAsia,
+	FaTwitterSquare,
+	FaLinkedin,
+	FaMedium,
+} from 'react-icons/fa';
 import Logo from '../../../shared/assets/img/sf-partner-logo.png';
-import { Separator } from '@/lib/shadcn/components/ui/separator';
+import { Separator } from '@shadcn/components/ui/separator';
 
 const icons = [
 	{
@@ -38,8 +43,8 @@ export default function Footer() {
 					<Separator />
 					<div className="py-[1.05rem] mx-20 md:mx-0 text-center">
 						<h3 className="font-semibold">
-							Copyright &#169; {new Date().getFullYear()} • Altus Digital Pty Ltd (ABN 94 638 335 716) • All Rights
-							Reserved
+							Copyright &#169; {new Date().getFullYear()} • Altus Digital Pty
+							Ltd (ABN 94 638 335 716) • All Rights Reserved
 						</h3>
 					</div>
 				</div>
