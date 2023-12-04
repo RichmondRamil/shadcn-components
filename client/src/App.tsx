@@ -16,7 +16,7 @@ import PublicRoutes from './shared/components/hoc/PublicRoute';
 // Layout
 import DashboardLayout from './shared/components/layout/Dashboard';
 // THEME AND CSS
-import { ThemeProvider } from './lib/shadcn/components/theme-provider';
+import { ThemeProvider } from '@shadcn/components/theme-provider';
 
 function App() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +30,7 @@ function App() {
 			(error) => {
 				setIsLoading(false);
 				return Promise.reject(error);
-			},
+			}
 		);
 
 		axios.interceptors.response.use(
@@ -51,13 +51,14 @@ function App() {
 				if (error.response.data.message) {
 					// TODO: PUT YOUR ERROR MODAL HERE
 				}
-			},
+			}
 		);
 	}
 
 	useEffect(() => {
 		axiosInterceptor();
 	}, []);
+
 	return (
 		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
 			<Loader isLoading={isLoading} />

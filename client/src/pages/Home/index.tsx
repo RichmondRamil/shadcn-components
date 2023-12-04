@@ -1,8 +1,16 @@
 // DEPENDENCIES
-import { Input } from '@/lib/shadcn/components/ui/input';
-import { Button } from '@/lib/shadcn/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/lib/shadcn/components/ui/card';
-import { Separator } from '@/lib/shadcn/components/ui/separator';
+import { Input } from '@shadcn/components/ui/input';
+import { Button } from '@shadcn/components/ui/button';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@shadcn/components/ui/card';
+import { Separator } from '@shadcn/components/ui/separator';
+
 import { Link } from 'react-router-dom';
 // COMPONENTS
 import Footer from '../../shared/components/common/Footer';
@@ -18,7 +26,8 @@ const packages = [
 	{
 		name: 'Tailwindcss',
 		link: 'https://tailwindcss.com/',
-		description: 'A utility-first CSS framework for rapidly building custom designs.',
+		description:
+			'A utility-first CSS framework for rapidly building custom designs.',
 		logo: 'https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png',
 	},
 	// SHADCN
@@ -37,7 +46,8 @@ const packages = [
 	{
 		name: 'Zustand',
 		link: 'https://zustand.surge.sh/',
-		description: 'A small, fast and scalable bearbones state-management solution.',
+		description:
+			'A small, fast and scalable bearbones state-management solution.',
 		logo: 'https://repository-images.githubusercontent.com/180328715/fca49300-e7f1-11ea-9f51-cfd949b31560',
 	},
 ];
@@ -73,7 +83,11 @@ export default function Home() {
 				{packages.map((item, index) => (
 					<Card key={index} className="w-1/5 m-2 h-60">
 						<CardHeader>
-							<img src={item.logo} alt={item.name} className="w-10 h-10 rounded-full" />
+							<img
+								src={item.logo}
+								alt={item.name}
+								className="w-10 h-10 rounded-full"
+							/>
 						</CardHeader>
 						<CardContent>
 							<CardTitle>{item.name}</CardTitle>
