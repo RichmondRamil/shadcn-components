@@ -1,13 +1,13 @@
 // COMPONENTS
-import { Button } from '@/lib/shadcn/components/ui/button';
+import { Button } from '@shadcn/components/ui/button';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '@/lib/shadcn/components/ui/dropdown-menu';
+} from '@shadcn/components/ui/dropdown-menu';
 import { Moon, Sun } from 'lucide-react';
-import { useTheme } from '@/lib/shadcn/components/theme-provider';
+import { useTheme } from '@shadcn/components/theme-provider';
 
 export default function ThemeToggleMode() {
 	const { setTheme } = useTheme();
@@ -22,9 +22,15 @@ export default function ThemeToggleMode() {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
-				<DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => setTheme('light')}>
+					Light
+				</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => setTheme('dark')}>
+					Dark
+				</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => setTheme('system')}>
+					System
+				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);
