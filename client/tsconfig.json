@@ -26,6 +26,6 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src", "dependecies/shadcn"],
+	"include": ["src"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
