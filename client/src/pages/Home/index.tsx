@@ -65,7 +65,7 @@ export default function Home() {
 						<Link to="/overview">Overview</Link>
 					</Button>
 					<Button variant="ghost" size="default">
-						<Link to="/dashboard">Dashboard</Link>
+						<Link to="/dasboard">Dashboard</Link>
 					</Button>
 				</nav>
 				<div className="flex flex-row space-x-5">

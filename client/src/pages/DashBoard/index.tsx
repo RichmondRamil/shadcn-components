@@ -18,7 +18,7 @@ export default function Dashboard(/* props: IDashboardProps */) {
 
 	return (
 		<div>
-			<h1 className="text-4xl font-bold text-primary">Recent Activity</h1>
+			<h1 className="text-4xl font-bold text-primary">Tech Stack Framework</h1>
 			<button onClick={() => getAdmin()} className="btn">
 				Test 1
 			</button>

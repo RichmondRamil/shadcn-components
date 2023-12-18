@@ -7,7 +7,6 @@ import axios from 'axios';
 import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 import Dashboard from './pages/DashBoard';
-import { AutomationTool, EmailTool, JourneyTool } from './pages/DashBoard/QATool';
 import NotFoundPage from './pages/NotFound';
 // COMPONENTS
 import Loader from './shared/components/common/Loader';
@@ -69,12 +68,7 @@ function App() {
 					<Route element={<PrivateRoutes />}>
 						<Route path="/dashboard" element={<DashboardLayout />}>
 							<Route index element={<Dashboard />} />
-							<Route path="automation-qa" element={<AutomationTool />} />
-							<Route path="email-qa" element={<EmailTool />} />
-							<Route path="journey-qa" element={<JourneyTool />}/>
-								{/* <Route path=":id" element={<h1>Test</h1>} />
-							</Route> */}
-							<Route path="settings" element={<h1>Settings</h1>} />
+							<Route path="contact" element={<h1>Contact</h1>} />
 						</Route>
 					</Route>
 					<Route element={<PublicRoutes />}>

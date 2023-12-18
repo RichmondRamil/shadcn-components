@@ -24,18 +24,18 @@ export default function Sidebar() {
       icon: () => <HiOutlineHome size={20} />,
     },
     {
-      path: '/dashboard/email-qa',
-      title: 'Email QA',
+      path: '/dashboard/contact',
+      title: 'Contact',
       icon: () => <HiOutlineUserCircle size={20} />,
     },
     {
-      path: '/dashboard/automation-qa',
-      title: 'Automation QA',
+      path: '/dashboard/data-extension',
+      title: 'Data Extension',
       icon: () => <HiOutlineServerStack size={20} />,
     },
     {
-      path: '/dashboard/journey-qa',
-      title: 'Journey QA',
+      path: '/dashboard/upload',
+      title: 'Upload',
       icon: () => <HiOutlineDocumentArrowUp size={20} />,
     },
     {
@@ -46,7 +46,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside id='default-sidebar' className='bg-[#E9ECF6] w-64 h-screen text-[#1D2F64]' aria-label='Sidebar'>
+    <aside id='default-sidebar' className=' w-64 h-screen' aria-label='Sidebar'>
       <div className='h-full py-5 bg-base-100'>
         <div className='flex flex-row justify-center mb-5'>
           <Link to='/dashboard'>
@@ -55,10 +55,9 @@ export default function Sidebar() {
             </div>
           </Link>
         </div>
-        <ul className='menu flex flex-col items-center'>
-          <div>
+        <ul className='menu'>
           {menuObj.map(({ path, title, icon }) => (
-            <li key={title} className='mb-2'>
+            <li key={title}>
               <Link to={path} className={isActive(path)}>
                 <div className='flex items-center'>
                   {icon()}
@@ -67,7 +66,6 @@ export default function Sidebar() {
               </Link>
             </li>
           ))}
-          </div>
         </ul>
       </div>
     </aside>
