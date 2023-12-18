@@ -1,13 +1,13 @@
 import { useState } from 'react';
 // DEPENDENCIES
 // SERVICES
-import AdminService from '../../services/AdminService';
+import AdminService from '../../../services/AdminService';
 // INITIALIZATION
 const adminService = new AdminService();
 // INTERFACES
 // export interface IDashboardProps {}
 
-export default function Dashboard(/* props: IDashboardProps */) {
+export default function EmailQA(/* props: IDashboardProps */) {
 	const [testState, setTestState] = useState(false);
 
 	async function getAdmin() {
@@ -18,7 +18,7 @@ export default function Dashboard(/* props: IDashboardProps */) {
 
 	return (
 		<div>
-			<h1 className="text-4xl font-bold text-primary">Recent Activity</h1>
+			<h1 className="text-4xl font-bold text-primary">Email QA</h1>
 			<button onClick={() => getAdmin()} className="btn">
 				Test 1
 			</button>

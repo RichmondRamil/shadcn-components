@@ -7,7 +7,7 @@ export default function Dashboard() {
     <>
       <div className='flex flex-row bg-base-300'>
         <Sidebar />
-        <div className='flex flex-col p-5 gap-5 overflow-y-scroll h-screen w-full'>
+        <div className='bg-[#FFFFFF] text-[#1D2F64] flex flex-col p-5 gap-5 overflow-y-scroll h-screen w-full'>
           <Outlet />
         </div>
       </div>
